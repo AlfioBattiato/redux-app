@@ -20,6 +20,7 @@ const Job = ({ data }) => {
         </a>
         <Button className='ms-auto'
           onClick={() => {
+            alert("aggiunto ai preferiti")
             dispatch({
               type: 'ADD_JOB',
               payload: data,

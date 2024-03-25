@@ -11,12 +11,13 @@ function Favourites() {
     })
     const dispatch = useDispatch()
 
+
     return (<Container className="mt-5">
         <Link to={"/"}><Button variant="success">Back</Button></Link>
         <h1 className="text-center">Lista preferiti:</h1>
         <Row className="mt-5">
             {myjob.map((myjob, index) => {
-                return <Col xs={12} className="border p-1">
+                return <Col xs={12} className="border p-1" key={index}>
                     <Row>
                    
 
