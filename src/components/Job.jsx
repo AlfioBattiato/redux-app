@@ -2,6 +2,7 @@ import React from 'react';
 import { Row, Col, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { addJobAction } from '../redux/actions';
 
 const Job = ({ data }) => {
   const dispatch = useDispatch();
@@ -20,11 +21,10 @@ const Job = ({ data }) => {
         </a>
         <Button className='ms-auto'
           onClick={() => {
-            alert("aggiunto ai preferiti")
-            dispatch({
-              type: 'ADD_JOB',
-              payload: data,
-            });
+            dispatch(
+              addJobAction(data)
+            
+            );
           }}
         >+ Preferiti</Button>
       </Col>

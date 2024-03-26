@@ -10,18 +10,25 @@
 // export default store
 // configureStore.js
 
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore,combineReducers  } from '@reduxjs/toolkit';
+import jobReducer from '../reducers/jobsReducer';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
+import dataReducer from '../reducers/dataReducer';
 
-import rootReducer from '../reducers';
+// import rootReducer from '../reducers';
 
 const persistConfig = {
   key: 'root',
   storage,
 };
 
-const persistedReducer = persistReducer(persistConfig, rootReducer);
+const allMyReducer=combineReducers({
+  favourites:jobReducer,
+  data:dataReducer
+
+})
+const persistedReducer = persistReducer(persistConfig, allMyReducer);
 
 const store = configureStore({
   reducer: persistedReducer,
